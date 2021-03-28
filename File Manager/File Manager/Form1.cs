@@ -72,9 +72,9 @@ namespace File_Manager
 
                     for (int i = 0; i < files.Length; i++)
                     {
+                        listView1.Items.Add(files[i].Name, 20);
 
-
-                        fileExtension = files[i].Extension.ToUpper();
+                        /*fileExtension = files[i].Extension.ToUpper();
                         switch (fileExtension)
                         {
                             case ".MP3":
@@ -115,7 +115,7 @@ namespace File_Manager
                             default:
                                 listView1.Items.Add(dirs[i].Name, 20);
                                 break;
-                        }
+                        }*/
                     }
 
 
