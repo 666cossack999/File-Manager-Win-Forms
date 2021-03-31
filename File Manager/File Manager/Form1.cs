@@ -14,7 +14,7 @@ namespace File_Manager
 {
     public partial class Form1 : Form
     {
-        private string filePath = @"C:\Users\Jackson\Downloads";
+        private string filePath = @"C:\";
         private string currentlySelectedItemName = "";
         private bool isFile = false;
 
@@ -67,12 +67,12 @@ namespace File_Manager
 
                     for (int i = 0; i < dirs.Length; i++)
                     {
-                        listView1.Items.Add(dirs[i].Name, 21);
+                        listView1.Items.Add(dirs[i].Name, 6);
                     }
 
                     for (int i = 0; i < files.Length; i++)
                     {
-                        listView1.Items.Add(files[i].Name, 20);
+                        listView1.Items.Add(files[i].Name, 3);
 
                         /*fileExtension = files[i].Extension.ToUpper();
                         switch (fileExtension)
@@ -169,11 +169,6 @@ namespace File_Manager
             }
         }
 
-        private void goButton_Click(object sender, EventArgs e)
-        {
-            loadButtonAction();
-        }
-
         private void listView1_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
             currentlySelectedItemName = e.Item.Text;
@@ -189,15 +184,18 @@ namespace File_Manager
                 isFile = true;
             }
         }
-
-        private void listView1_MouseDoubleClick(object sender, MouseEventArgs e)
+        private void goButton_Click(object sender, EventArgs e)
         {
             loadButtonAction();
         }
-
         private void backButton_Click(object sender, EventArgs e)
         {
             goBack();
+            loadButtonAction();
+        }
+
+        private void listView1_DoubleClick(object sender, EventArgs e)
+        {
             loadButtonAction();
         }
     }

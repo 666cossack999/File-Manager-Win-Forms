@@ -1,4 +1,6 @@
 ﻿
+using System;
+
 namespace File_Manager
 {
     partial class Form1
@@ -35,11 +37,11 @@ namespace File_Manager
             this.goButton = new System.Windows.Forms.Button();
             this.filePathTextBox = new System.Windows.Forms.TextBox();
             this.listView1 = new System.Windows.Forms.ListView();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.Label = new System.Windows.Forms.Label();
             this.fileNameLabel = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.fileTypeLabel = new System.Windows.Forms.Label();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.SuspendLayout();
             // 
             // backButton
@@ -50,6 +52,7 @@ namespace File_Manager
             this.backButton.TabIndex = 0;
             this.backButton.Text = "Back";
             this.backButton.UseVisualStyleBackColor = true;
+            this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
             // goButton
             // 
@@ -59,6 +62,7 @@ namespace File_Manager
             this.goButton.TabIndex = 1;
             this.goButton.Text = "Go";
             this.goButton.UseVisualStyleBackColor = true;
+            this.goButton.Click += new System.EventHandler(this.goButton_Click);
             // 
             // filePathTextBox
             // 
@@ -77,6 +81,35 @@ namespace File_Manager
             this.listView1.SmallImageList = this.imageList1;
             this.listView1.TabIndex = 3;
             this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.listView1_ItemSelectionChanged);
+            this.listView1.DoubleClick += new System.EventHandler(this.listView1_DoubleClick);
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "avi_file_25831.png");
+            this.imageList1.Images.SetKeyName(1, "bmp_file_25830.png");
+            this.imageList1.Images.SetKeyName(2, "cab_file_25829.png");
+            this.imageList1.Images.SetKeyName(3, "desktop_25827.png");
+            this.imageList1.Images.SetKeyName(4, "doc_file_25826.png");
+            this.imageList1.Images.SetKeyName(5, "folder_back_25859.png");
+            this.imageList1.Images.SetKeyName(6, "folder_close_25858.png");
+            this.imageList1.Images.SetKeyName(7, "folder_open_25856.png");
+            this.imageList1.Images.SetKeyName(8, "gif_file_25825.png");
+            this.imageList1.Images.SetKeyName(9, "jpg_file_25824.png");
+            this.imageList1.Images.SetKeyName(10, "mov_file_25823.png");
+            this.imageList1.Images.SetKeyName(11, "mp3_file_25822.png");
+            this.imageList1.Images.SetKeyName(12, "mp4_file_25821.png");
+            this.imageList1.Images.SetKeyName(13, "mpeg_file_25820.png");
+            this.imageList1.Images.SetKeyName(14, "pdf_file_25819.png");
+            this.imageList1.Images.SetKeyName(15, "png_file_25818.png");
+            this.imageList1.Images.SetKeyName(16, "psd_files_25817.png");
+            this.imageList1.Images.SetKeyName(17, "rar_file_25816.png");
+            this.imageList1.Images.SetKeyName(18, "tif_file_25815.png");
+            this.imageList1.Images.SetKeyName(19, "txt_file_25814.png");
+            this.imageList1.Images.SetKeyName(20, "wma_file_25813.png");
+            this.imageList1.Images.SetKeyName(21, "zip_file_25812.png");
             // 
             // Label
             // 
@@ -114,33 +147,6 @@ namespace File_Manager
             this.fileTypeLabel.TabIndex = 4;
             this.fileTypeLabel.Text = "--";
             // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "avi_file_25831.png");
-            this.imageList1.Images.SetKeyName(1, "bmp_file_25830.png");
-            this.imageList1.Images.SetKeyName(2, "cab_file_25829.png");
-            this.imageList1.Images.SetKeyName(3, "desktop_25827.png");
-            this.imageList1.Images.SetKeyName(4, "doc_file_25826.png");
-            this.imageList1.Images.SetKeyName(5, "folder_back_25859.png");
-            this.imageList1.Images.SetKeyName(6, "folder_close_25858.png");
-            this.imageList1.Images.SetKeyName(7, "folder_open_25856.png");
-            this.imageList1.Images.SetKeyName(8, "gif_file_25825.png");
-            this.imageList1.Images.SetKeyName(9, "jpg_file_25824.png");
-            this.imageList1.Images.SetKeyName(10, "mov_file_25823.png");
-            this.imageList1.Images.SetKeyName(11, "mp3_file_25822.png");
-            this.imageList1.Images.SetKeyName(12, "mp4_file_25821.png");
-            this.imageList1.Images.SetKeyName(13, "mpeg_file_25820.png");
-            this.imageList1.Images.SetKeyName(14, "pdf_file_25819.png");
-            this.imageList1.Images.SetKeyName(15, "png_file_25818.png");
-            this.imageList1.Images.SetKeyName(16, "psd_files_25817.png");
-            this.imageList1.Images.SetKeyName(17, "rar_file_25816.png");
-            this.imageList1.Images.SetKeyName(18, "tif_file_25815.png");
-            this.imageList1.Images.SetKeyName(19, "txt_file_25814.png");
-            this.imageList1.Images.SetKeyName(20, "wma_file_25813.png");
-            this.imageList1.Images.SetKeyName(21, "zip_file_25812.png");
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -161,6 +167,7 @@ namespace File_Manager
             this.PerformLayout();
 
         }
+
 
         #endregion
 
